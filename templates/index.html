@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="stylesheet" href={{url_for('static', filename="styles.css")}}>
+    </head>
+    <body>
+        <form action = "http://localhost:5000/result" method = "POST" id="frm">
+            <p>Event Name <input type = "text" name = "eventName" /></p>
+            <div></div>
+            <p>Creator Name <input type = "text" name = "creatorName" /></p>
+            <div id="inputarea">
+                <div id="fam1">
+                    <div class="famarea">
+                        <p>Email <input type = "text" name = "email" /> <div class="deleteEmail"> Remove email</div></p>
+                        <div class="nameOuter"><p>Name <input style="display: inline" type = "text" name = "name1" /> <div class="deleteName"> Remove name</div></p></div> 
+                    </div>
+                    <div class="addName" style="background-color: blue; color:white; padding:0.5em"> Add Name </div>
+                </div>
+            </div>
+            <div id="addFam"> Add Family </div>
+            <div>
+                <p>Preview first<input type="checkbox" name="preview"></p>
+                <div></div>
+                <p><input type = "submit" value = "Submit" /></p>
+            </div>
+        </form>
+
+        <script src="script.js"></script>
+        <script type=text/javascript src={{url_for('static', filename='script.js')}}></script>
+    </body>
+</html>
+
+

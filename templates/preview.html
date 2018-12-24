@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+    <body>
+        <form action="/preview" method="POST"> 
+            <p>Event Name <input type = "text" name = "eventName" value={{eventName}} /></p>
+            <p>Creator Name <input type = "text" name = "creatorName" value={{creatorName}} /></p>
+            {% for email, names in result.items() %}
+                <p>
+                    <!-- <input type="text" name={{i}} style="display: inline" value={{key}}>  -->
+                    <p>email <input type="text" name={{email}} value={{email}} /></p>
+                    {% for pair in names %}
+                        <div style="padding-left:1em">
+                            {{pair[0]}} has
+                            <input type="text" name={{pair[0]}} style="display: inline" value={{pair[1]}}>
+                            <div style="display:block"></div>
+                        </div>
+                        {% endfor %}
+                </p>
+            {% endfor %}
+            <p><input type = "submit" value = "Submit" /></p>
+        </form> 
+    </body>
+</html>
