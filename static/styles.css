@@ -1,4 +1,11 @@
 body {
+    background-color: aliceblue;
+}
+
+.deleteEmail, .deleteName, .addname, #addfam {
+    border-radius: 0.2em;
+    border: 1px solid black;
+  
 }
 
 .deleteName, .deleteEmail {
