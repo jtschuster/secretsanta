@@ -2,21 +2,42 @@ body {
     background-color: aliceblue;
 }
 
-.deleteEmail, .deleteName, .addname, #addfam {
+.deleteEmail,
+.deleteName,
+.addname,
+#addfam {
     border-radius: 0.2em;
     border: 1px solid black;
-  
 }
 
-.deleteName, .deleteEmail {
+.btn {
+    color: black;
+    text-decoration: none;
+}
+
+.title {
+    align-self: center;
+    margin: 0.5em, 0;
+}
+
+.info {
+    margin: 0.5em;
+}
+
+.data {
+    margin: 1em;
+}
+
+.deleteName,
+.deleteEmail {
     display: inline;
     padding: 0.2em;
-    background-color:red;
+    background-color: red;
 }
 
 input {
-    display:inline;
-    margin:0.5em;
+    display: inline;
+    margin: 0.5em;
 }
 
 p {
@@ -24,34 +45,33 @@ p {
 }
 
 .nameOuter {
-    padding-left:2em;
+    padding-left: 2em;
 }
 
 
 .addname {
-    background-color: blue; 
-    color:white; 
-    padding:0.5em;
-    margin:0.2em;
-    margin-left:3em;
-    display:inline-block;
+    background-color: blue;
+    color: white;
+    padding: 0.5em;
+    margin: 0.2em;
+    margin-left: 3em;
+    display: inline-block;
 }
 
 #addfam {
-    margin:0.2em;
-    margin-top:1em;
+    margin: 0.2em;
+    margin-top: 1em;
     background-color: green;
-    padding:0.6em;
-    display:inline-block;
+    padding: 0.6em;
+    display: inline-block;
 }
 
 .famarea {
-    margin:0.3em;
-    margin-bottom:0;
+    margin: 0.3em;
+    margin-bottom: 0;
 }
 
 .fam1 {
-    padding:1em;
+    padding: 1em;
     display: inline;
 }
-    

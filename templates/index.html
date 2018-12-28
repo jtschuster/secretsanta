@@ -1,33 +1,57 @@
 <html>
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <link rel="stylesheet" href={{url_for('static', filename="styles.css")}}>
-    </head>
-    <body>
-        <form action = "http://localhost:5000/result" method = "POST" id="frm">
-            <p>Event Name <input type = "text" name = "eventName" /></p>
-            <div></div>
-            <p>Creator Name <input type = "text" name = "creatorName" /></p>
-            <div id="inputarea">
-                <div id="fam1">
-                    <div class="famarea">
-                        <p>Email <input type = "text" name = "email" /> <div class="deleteEmail"> Remove email</div></p>
-                        <div class="nameOuter"><p>Name <input style="display: inline" type = "text" name = "name1" /> <div class="deleteName"> Remove name</div></p></div> 
-                    </div>
-                    <div class="addName" style="background-color: blue; color:white; padding:0.5em"> Add Name </div>
-                </div>
-            </div>
-            <div id="addFam"> Add Family </div>
-            <div>
-                <p>Preview first<input type="checkbox" name="preview"></p>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href={{url_for('static', filename="styles.css")}}>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Secret Santa Name Selection</h1>
+        <h3 class="info">Enter emails below and the name(s) associated with them. For families that would share an
+            email,
+            enter all their names underneath the same email. All names must be unique; use some unique identifier
+            for
+            each name.</h3>
+        <div class="data">
+            <form action="http://localhost:5000/result" method="POST" id="frm">
+                <p>Event Name <input type="text" name="eventName" /></p>
                 <div></div>
-                <p><input type = "submit" value = "Submit" /></p>
-            </div>
-        </form>
+                <p>Creator Name <input type="text" name="creatorName" /></p>
+                <div id="inputarea">
+                    <div id="fam1">
+                        <div class="famarea">
+                            <p>Email <input type="text" name="email" />
 
-        <script src="script.js"></script>
-        <script type=text/javascript src={{url_for('static', filename='script.js')}}></script>
-    </body>
+                                <div class="deleteEmail"><a class="btn" href="#">Remove email</a></div>
+
+                            </p>
+                            <div class="nameOuter">
+                                <p>Name <input style="display: inline" type="text" name="name1" />
+                                    <a class="btn" href="#">
+                                        <div class="deleteName">Remove name</div>
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                        <a class="btn" href="#">
+                            <div class="addName" style="background-color: blue; color:white; padding:0.5em">Add Name</div>
+                        </a>
+                    </div>
+                </div>
+                <a class="btn" href="#">
+                    <div id="addFam"> Add Family </div>
+                </a>
+                <div>
+                    <p>Preview first<input type="checkbox" name="preview"></p>
+                    <div></div>
+                    <p><input type="submit" value="Submit" /></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type=text/javascript src={{url_for('static', filename='script.js')}}></script>
+</body>
+
 </html>
-
-

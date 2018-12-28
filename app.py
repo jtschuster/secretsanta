@@ -101,10 +101,14 @@ def sendEmail(receiver, message):
 
     # receiver_email = "jackson.schuster345@gmail.com"
     message = "Subject: Your name(s) for Secret Santa \n" + message
-
-    with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
-        server.login("secret.santa.name.picker@gmail.com", password)
-        server.sendmail(sender_email, receiver_email, message)
+    try:
+        with smtplib.SMTP_SSL("smtp.gmail.com", port, context=context) as server:
+            server.login("secret.santa.name.picker@gmail.com", password)
+            server.sendmail(sender_email, receiver_email, message)
+    except:
+        print("exception")
+        return -1
+    return 1
 
 def parsePreview(formdata): #returns in order of 
     result = formdata
@@ -112,7 +116,7 @@ def parsePreview(formdata): #returns in order of
     emails = defaultdict(list)
     email = "ope"
     for key, val in result.items():
-        print(key + " = " + val + " from " + email)
+        #print(key + " = " + val + " from " + email)
         if key == val: #must be the email
             email = val
         elif key == "creatorName":
@@ -126,8 +130,9 @@ def parsePreview(formdata): #returns in order of
         message = f"Hello!\n{creatorName} created a Secret Santa gift exchange for {eventName}. You have been assigned the following name(s):\n\n"
         for name in emails[email]:
             message = message + name + " has " + result[name] + "\n"
-        print(message)
-        sendEmail(email, message)
+        #print(message)
+        if sendEmail(email, message) == -1:
+            return -1
 
 @app.route('/')
 def index():
@@ -138,7 +143,8 @@ def previewSend():
     print("it's connected at least")
     if request.method == 'POST':
         result = request.form
-        parsePreview(result)
+        if parsePreview(result) == -1:
+            return "One or more emails are invalid: ensure the emails are correct and try again"
         return "Emails have been sent"
 
 
@@ -189,7 +195,8 @@ def result():
                     for name in emails[email]:
                         message = message + name + " has " + result[name] + "\n"
                     print(message)
-                    sendEmail(email, message)
+                    if sendEmail(email, message) == -1:
+                        return "Emails are not valid. Retry"
                 return render_template("result.html",result = result)
 
 if __name__ == '__main__':
